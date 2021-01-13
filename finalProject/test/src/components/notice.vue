@@ -8,8 +8,8 @@
       </el-link>
     </div>
     <div class="newNotice">
-      <span>标题</span>
-      <div>内容</div>
+      <span class="newNoticTitle" slot="reference">标题标题标题标题标题标题标题</span>
+      <div class="newNoticContent">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
     </div>
 
     <!--  更多公告-->
@@ -64,7 +64,22 @@
 
 .newNotice{
   margin-top: 28px;
-  margin-right:120px;
+  margin-left:20px;
 }
 
+.newNoticTitle{
+  width: 150px;
+  display: block;
+  margin-bottom: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.newNoticContent{
+  width: 150px;
+  font-size: small;
+  text-align: left;
+  margin-bottom: 20px;
+}
 </style>

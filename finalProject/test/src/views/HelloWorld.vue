@@ -14,11 +14,11 @@
           background-color="#545c64"
           text-color="#fff"
           active-text-color="#ffd04b">
-          <el-menu-item index="1">处理中心</el-menu-item>
+          <el-menu-item index="1">首页</el-menu-item>
           <el-submenu index="2">
-            <template slot="title">我的工作台</template>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
+            <template slot="title">社区公益</template>
+            <el-menu-item index="2-1">社区共享</el-menu-item>
+            <el-menu-item index="2-2">志愿服务</el-menu-item>
             <el-menu-item index="2-3">选项3</el-menu-item>
             <el-submenu index="2-4">
               <template slot="title">选项4</template>
@@ -27,13 +27,14 @@
               <el-menu-item index="2-4-3">选项3</el-menu-item>
             </el-submenu>
           </el-submenu>
-          <el-menu-item index="3" disabled>消息中心</el-menu-item>
-          <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+          <el-menu-item index="3" ><a href="https://baike.baidu.com/item/%E6%B7%87%E5%9B%AD%E6%9D%91/6511342" target="_blank">社区详情</a></el-menu-item>
+          <el-menu-item index="4">意见反馈</el-menu-item>
           <el-dropdown  class="headPosition">
           <span class="el-dropdown-link">
             <el-avatar icon="el-icon-user-solid"></el-avatar><i class="el-icon-arrow-down el-icon--right"></i>
           </span>
             <el-dropdown-menu slot="dropdown" v-if="!noUser">
+              <el-dropdown-item @click.native="changePicHeader">修改头像</el-dropdown-item>
               <el-dropdown-item @click.native="changePassword">修改密码</el-dropdown-item>
               <el-dropdown-item>退出登录</el-dropdown-item>
             </el-dropdown-menu>
@@ -51,19 +52,23 @@
             <h3 class="medium">{{ item }}</h3>
           </el-carousel-item>
         </el-carousel>
+
       </el-main>
       <el-footer>Footer</el-footer>
     </el-container>
     <change-password ref="changePassword"></change-password>
+    <change-pic-header ref="changePicHeader"></change-pic-header>
   </el-container>
 </template>
 
 <script>
 import notice from '../components/notice'
 import changePassword from './components/changePassword'
+import changePicHeader from './components/changePicHeader'
 export default {
   name: 'HelloWorld',
   components: {
+    changePicHeader: changePicHeader,
     notice: notice,
     changePassword: changePassword
   },
@@ -86,6 +91,10 @@ export default {
     changePassword(){
       this.$refs.changePassword.outerVisible = true;
       this.$refs.changePassword. resetForm('pwdList');
+    },
+
+    changePicHeader(){
+      this.$refs.changePicHeader.outerVisible = true;
     }
 
   }
